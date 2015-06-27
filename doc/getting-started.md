@@ -59,4 +59,3 @@ export const home = createStaticTransition({
 ```
  <Link dispatcher={dispatcher} href="/">Home</Link>
  ```
-

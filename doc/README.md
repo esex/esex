@@ -1,46 +1,64 @@
 # ESEX Documentation
 
-* Getting started
-  * installation
-  * start
-    * configuration
-  * first component
-* Guides
-  * compilation and developing process
-  * how to make a model
-    * Схемы моделей данных
-      * validation
-      * relationships
-      * acl
-      * normalize
-    * migrations
-    * fixtures
-  * how to make api
-    * routing
-    * GET  
-      * db
-      * map object to resource
-      * get params from request
-      * fulfillQuery
-    * POST
-      * validate resource by schema
-      * map resource transaction
-      * transaction
-    * api auth
-    * ацл
-    * wrap handler
-  * how to make a page
-    * компоненты patchReact preventEvent
-      * умные
-      * глупые
-      * страницы
-    * роутинг progressIndicator
-    * How to write запросы к серверу apiRequest
-    * Подготовка дерева данных для компонент collectResources
-    * флакс bindAction createStore
-  * client auth getCurrentuser
-  * tests
-    * karma
-    * cucumber
-    * eslint
-  * Как работает изоморфность изнутри createDispatcher appTemplate renderPage
+* [Introduction](introduction.md)
+* [Getting Started](getting-started.md)
+  - Installation
+  - Running
+  - Configuration
+  - Create Your First Page
+* [Esex Book](esex-book)
+  * Esex Structure
+  * Development Workflow
+  * Data Layer
+    * Database
+      * Oriento
+      * Transactions
+      * Migrations
+      * Fixtures
+    * Difference Between Objects, Resources, and Resource Schemas
+    * Resource Schemas
+      * Attributes and Validation
+      * Relationships
+      * Normalization
+      * Access Control
+  * API Layer
+    * Simple Example of HTTP Handler
+      - HTTP Handler
+      - HTTP Handlers Routing
+    * JSON API
+      - Fetching Params From Request
+      - Satisfy Query
+    * Resource Schemas Usage
+      - Access Control
+      - Validation
+      - Normalization
+      - Mapping To Transaction
+  * Components Layer
+    * Types of Components
+      - Stateless Component
+      - Observable Components
+      - Page Component
+    * Page Components Routing
+      - Page Transitions
+    * Flux
+      - Redux
+      - Module
+        - Actions
+        - Action Types
+        - Action Creators
+        - Store Reducers
+    * Requests to API
+    * Component Data Tree
+      - Component Data Tree Reducer
+    * Page Handler
+  * AAA - Authentication, Authorization, Accounting
+  * Existing Framework Related Flux Modules
+    * Resources
+    * Router
+    * Token
+  * Tests
+    * Linting
+    * Unit Tests
+    * Acceptance Tests
+  * Deployment
+  * [Glossary](esex-book/glossary.md)
