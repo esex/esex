@@ -1,14 +1,7 @@
 import createObservableComponent from 'react-observable'
-import {
-  setEmail,
-  setPassword,
-  submit
-} from '../../flux/signIn/signInActions'
-import bindAction from '../../utilities/bindAction'
 import preventEvent from '../../utilities/preventEvent'
 
-function DumbSignIn(props) {
-  const {dispatcher} = props
+function SignIn(props) {
   const {data, validationMessagesVisible, validation, disabled, error} = props
   const {onEmailChange, onPasswordChange, onSubmit} = props
 
@@ -47,18 +40,6 @@ function DumbSignIn(props) {
       {error && <div>{error.message}</div>}
     </form>
   )
-}
-
-function SignIn({dispatcher}) {
-  return dispatcher.observable
-    .map(state => ({
-      dispatcher,
-      ...state.signIn,
-      onEmailChange: bindAction(dispatcher, setEmail),
-      onPasswordChange: bindAction(dispatcher, setPassword),
-      onSubmit: bindAction(dispatcher, submit)
-    }))
-    .map(DumbSignIn)
 }
 
 export default createObservableComponent(SignIn)

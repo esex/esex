@@ -1,13 +1,12 @@
 import createObservableComponent from 'react-observable'
-import {navigateTo} from '../../flux/router/routerActions'
 
 function Link(props) {
-  const {dispatcher, href} = props
+  const {href, onTransition} = props
 
   // TODO: handle edge cases like ctrl+click
   const handleClick = event => {
     event.preventDefault()
-    dispatcher.dispatch(navigateTo(href))
+    onTransition(href)
   }
 
   return (

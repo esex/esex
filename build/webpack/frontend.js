@@ -30,6 +30,10 @@ export default mergeObjects(base, {
         {
           test: /\.css$/,
           loaders: ['style', 'css']
+        },
+        {
+          test: /\.(eot|svg|ttf|woff|woff2)$/,
+          loaders: ['url?limit=10000']
         }
       ],
       base.module.loaders
