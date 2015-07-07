@@ -1,6 +1,6 @@
 import path from 'path'
 
-import {mergeObjects} from '../utilities'
+import {mergeObjects, mergeArrays} from '../utilities'
 import config from '../config'
 import base from './base'
 
@@ -11,6 +11,22 @@ export default mergeObjects(base, {
     path: path.join(config.destinationDirectory),
     filename: 'webserver.js'
   },
+
+  module: mergeObjects(base.module, {
+    loaders: mergeArrays(
+      [
+        {
+          test: /\.less$/,
+          loaders: ['null']
+        },
+        {
+          test: /\.css$/,
+          loaders: ['null']
+        }
+      ],
+      base.module.loaders
+    )
+  }),
 
   target: 'node',
   node: {

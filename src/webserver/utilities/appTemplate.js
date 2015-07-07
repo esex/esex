@@ -4,6 +4,7 @@ export default function appTemplate(title, content, state) {
     <html>
       <head>
         <title>${title}</title>
+        <link rel="stylesheet" href="/frontend.css" />
       </head>
       <body>
         <div id="application">${content}</div>
