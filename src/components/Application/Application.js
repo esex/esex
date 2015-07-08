@@ -1,4 +1,7 @@
 import createObservableComponent from 'react-observable'
+
+import './Application.less'
+
 import * as pages from '../pages'
 
 function Application({dispatcher}) {

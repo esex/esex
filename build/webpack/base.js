@@ -10,6 +10,10 @@ export default {
         test: /\.js$/,
         include: [config.sourceDirectory],
         loaders: ['babel']
+      },
+      {
+        test: /\.(png)$/,
+        loaders: ['file']
       }
     ]
   },

@@ -1,4 +1,7 @@
 import {DefinePlugin, HotModuleReplacementPlugin} from 'webpack'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import autoprefixer from 'autoprefixer-core'
+import mqpacker from 'css-mqpacker'
 import path from 'path'
 
 import {useIf, prepareArray, mergeArrays, mergeObjects} from '../utilities'
@@ -28,19 +31,33 @@ export default mergeObjects(base, {
           loaders: ['react-hot-loader']
         },
         {
+          test: /\.less$/,
+          loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader!less-loader?sourceMap')
+        },
+        {
           test: /\.css$/,
-          loaders: ['style', 'css']
+          loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader')
+        },
+        {
+          test: /\.(eot|svg|ttf|woff|woff2)$/,
+          loaders: ['url?limit=10000']
         }
       ],
       base.module.loaders
     )
   }),
 
+  postcss: () => ([
+    autoprefixer,
+    mqpacker
+  ]),
+
   plugins: mergeArrays(
     prepareArray([
       new DefinePlugin({
         'process.env.BACKEND_ADDRESS': JSON.stringify(process.env.BACKEND_ADDRESS || '')
       }),
+      new ExtractTextPlugin('frontend.css'),
       useIf(config.hotReload, new HotModuleReplacementPlugin())
     ]),
     base.plugins

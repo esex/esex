@@ -1,0 +1,44 @@
+@import '~bootstrap/less/mixins.less';
+@import '../variables.less';
+
+
+
+.category-main-header {
+  border-bottom: 1px solid @gray-lighter;
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  font-size: @font-size-h1;
+  font-family: @headings-font-family;
+  font-weight: @headings-font-weight;
+  line-height: @headings-line-height;
+  color: @headings-color;
+  .clearfix();
+
+  hr {
+    margin: 10px 0;
+  }
+
+  &__small-link {
+    color: @link-color !important;
+  }
+
+  @media (max-width: @screen-xs-max) {
+    font-size: @font-size-h2;
+  }
+
+  h1 {
+    @media (max-width: @screen-xs-max) {
+      font-size: @font-size-h2;
+    }
+  }
+
+  &--alone {
+    margin-bottom: 0;
+    padding-bottom: 15px;
+    border-bottom: none;
+  }
+
+  &--mb10 {
+    margin-bottom: 10px;
+  }
+}

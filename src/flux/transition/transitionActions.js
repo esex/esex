@@ -15,6 +15,10 @@ export const users = createFetchTransition({
   apiRequest: api.usersPageApiRequest
 })
 
+export const markup = createStaticTransition({
+  title: 'Markup'
+})
+
 export const notFound = createStaticTransition({
   status: 404,
   title: 'Not Found'
