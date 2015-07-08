@@ -32,11 +32,11 @@ export default mergeObjects(base, {
         },
         {
           test: /\.less$/,
-          loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!less-loader')
+          loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader!less-loader?sourceMap')
         },
         {
           test: /\.css$/,
-          loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
+          loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader')
         },
         {
           test: /\.(eot|svg|ttf|woff|woff2)$/,

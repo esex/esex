@@ -9,6 +9,7 @@ export default mergeObjects(base, {
 
   output: {
     path: path.join(config.destinationDirectory),
+    publicPath: '/',
     filename: 'webserver.js'
   },
 

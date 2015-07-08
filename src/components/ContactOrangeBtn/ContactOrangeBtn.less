@@ -1,0 +1,63 @@
+.contact-orange-btn {
+  display: inline-block;
+  min-height: 66px;
+  min-width: 260px;
+  padding: 1px;
+  background: #dca722;
+  background: linear-gradient(to bottom, #dca722 1%,#b55d04 100%);
+  border-radius: 5px;
+  text-decoration: none !important;
+
+  &__inner {
+    display: block;
+    position: relative;
+    min-height: 64px;
+    min-width: 258px;
+    overflow: hidden;
+    background: #ca8204;
+    background: linear-gradient(to bottom, #ca8204 1%,#993a00 100%);
+    border-radius: 5px;
+    padding: 10px 10px 0 80px;
+
+    &:after {
+      content: '';
+      width: 200px;
+      height: 200px;
+      background: #ca8204;
+      position: absolute;
+      top: 50%;
+      margin-top: -61px;
+      left: -130px;
+      transform: rotate(68deg) skewX(45deg);
+      box-shadow: 0 0 5px 0 rgba(0,0,0,.5);
+      background: linear-gradient(145deg, #e9bf35 34%, #a53800 48%);
+    }
+
+    .icon-phone {
+      position: absolute;
+      top: 12px;
+      left: 11px;
+      text-align: center;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 36px;
+      color: #DADADA;
+      z-index: 3;
+      text-shadow: 1px 1px 2px rgba(0,0,0,.3);
+    }
+  }
+
+  &__text, &__numbers {
+    display: block;
+  }
+  &__text {
+    color: #fff;
+    font-size: 13px;
+  }
+  &__numbers {
+    color: #fbf7ba;
+    font-size: 23px;
+    line-height: 1;
+  }
+}

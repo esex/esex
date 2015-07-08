@@ -1,0 +1,32 @@
+@import '../variables.less';
+
+
+
+html {
+  min-width: @html-min-width;
+  // -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  padding-bottom: 40px; // запас для блока добавления контента
+
+  &.no-add-content {
+    padding-bottom: 0;
+  }
+}
+
+
+
+html,body {
+  min-height: 100vh;
+}
+
+
+
+#application {
+  padding-top: @header-height;
+}
+
+
+
+a:focus {
+  outline: dotted thin !important;
+}
