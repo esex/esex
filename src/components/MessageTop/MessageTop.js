@@ -6,7 +6,7 @@ export default class MessageTop {
       <div className="message-top">
         <div className="container">
           <div className="message-top__inner">
-            Какое-то сообщение посетителю.
+            {this.props.children}
             <a className="message-top__close" title="Закрыть" href="#"><i className="icon-cancel"></i></a>
           </div>
         </div>

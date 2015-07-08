@@ -1,7 +1,3 @@
-import AddContent from '../AddContent/AddContent'
-import Category from '../Category/Category'
-import CategoryPhoto from '../Category/CategoryPhoto'
-
 import './ContentWrapper.less'
 
 export default class ContentWrapper {
@@ -9,9 +5,7 @@ export default class ContentWrapper {
     return (
       <div className="content-wrapper">
         <div className="container">
-          <Category />
-          <CategoryPhoto />
-          <AddContent />
+          {this.props.children}
         </div>
       </div>
     )

@@ -8,6 +8,10 @@ export default class AddContent {
     menuOpened: PropTypes.bool
   }
 
+  toggleMenuOpened() {
+    this.props.onMenuToggle(!this.props.menuOpened)
+  }
+
   render() {
     const {menuOpened} = this.props
 
@@ -22,7 +26,7 @@ export default class AddContent {
             <li><a href="#"><i className="icon-plus"></i> Мероприятие</a></li>
             <li><a href="#"><i className="icon-plus"></i> Объявление</a></li>
           </ul>
-          <a href="#" className="add-content__icon-menu"><i className="icon-dots"></i></a>
+          <button href="#" className="add-content__icon-menu" onClick={::this.toggleMenuOpened}><i className="icon-dots"></i></button>
           <div className={classNames('add-content__wrap', {
             'add-content__wrap--visible': menuOpened
           })}>

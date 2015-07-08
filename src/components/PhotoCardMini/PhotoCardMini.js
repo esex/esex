@@ -5,9 +5,9 @@ export default class PhotoCardMini {
     return (
       <div className="photo-card-mini">
         <a href="#" className="photo-card-mini__img-and-header-link">
-          <img className="photo-card-mini__img-left" src="http://placehold.it/690x460" alt="" />
+          <img className="photo-card-mini__img-left" src={this.props.photo} alt="" />
           <h3 className="photo-card-mini__header">
-            Фото в труселях
+            {this.props.description}
           </h3>
           <div className="photo-card-mini__labels">
             <span className="label label-danger">Это Я!</span>
@@ -15,10 +15,7 @@ export default class PhotoCardMini {
         </a>
         <div className="small">
           <p className="photo-card-mini__tags">
-            <a href="#">#неведомое</a>
-            <a href="#">#БРЕНД</a>
-            <a href="#">#НЛО</a>
-            <a href="#">#турнир</a>
+            {this.props.tags.map((el) => <a href="#">{el}</a>)}
           </p>
         </div>
       </div>
