@@ -6,72 +6,69 @@ import MessageTop from '../MessageTop/MessageTop'
 import AddContent from '../AddContent/AddContent'
 import Category from '../Category/Category'
 import CategoryPhoto from '../Category/CategoryPhoto'
+import PhotoCardMini from '../PhotoCardMini/PhotoCardMini'
+import ProductCardMini from '../ProductCardMini/ProductCardMini'
+import controllable from '../../utilities/controllable'
 
-import React from 'react'
-function controllable(initialState) {
-  return Component => class Controllable extends React.Component {
-    constructor(...args) {
-      super(...args)
-      this.state = initialState
-    }
-
-    render() {
-      const handlers = Object.keys(this.state)
-        .reduce((acc, key) => {
-          const handlerKey = `on${key[0].toUpperCase()}${key.slice(1)}Change`
-          const linkKey = `${key}Link`
-
-          acc[handlerKey] = (value) => {
-            this.setState({[key]: value})
-          }
-          acc[linkKey] = {
-            value: this.state[key],
-            requestChange: acc[handlerKey]
-          }
-
-          return acc
-        }, {})
-
-      return (
-        <Component
-          {...this.props}
-          {...this.state}
-          {...handlers}
-        />
-      )
-    }
-  }
-}
 
 @controllable({
+  messageOpened: true,
   pageHeaderMenuOpened: false,
-  addContentMenuOpened: false
+  addContentMenuOpened: false,
+  amount: 1
 })
 export default class MarkupCategoryAndPhoto {
   render() {
     const {
+      messageOpened,
+      onMessageOpenedChange,
       pageHeaderMenuOpened,
       onPageHeaderMenuOpenedChange,
       addContentMenuOpened,
-      onAddContentMenuOpenedChange
+      onAddContentMenuOpenedChange,
+      amount,
+      onAmountChange
     } = this.props
 
     return (
       <div>
 
-        <MessageTop> Какое-то сообщение пользователю </MessageTop>
+        {messageOpened &&
+          <MessageTop onClose={() => onMessageOpenedChange(false)}>
+            Какое-то сообщение пользователю
+          </MessageTop>
+        }
+
         <PageHeader
           menuOpened={pageHeaderMenuOpened}
           onMenuToggle={onPageHeaderMenuOpenedChange}
         />
-        <Breadcrumbs />
+
+        <Breadcrumbs>
+          <a href="">Главная</a>
+          <a href="">Вторая</a>
+          <a href="">Третья</a>
+        </Breadcrumbs>
+
         <ContentWrapper>
-          <Category
-            title="Название рубрики или категории1"
-          />
-          <CategoryPhoto
-            title="Название рубрики или категории2"
-          />
+          <Category title="Название рубрики или категории1">
+            <ProductCardMini
+              amount={amount}
+              onAmountChange={onAmountChange}
+              description="Фото в шортах"
+              price="100 000"
+              photo="http://placehold.it/690x460"
+              tags={["#неведомое1", "#БРЕНД", "#НЛО", "#турнир"]}
+            />
+          </Category>
+
+          <CategoryPhoto title="Название рубрики или категории2">
+            <PhotoCardMini
+              description="Фото в труселях"
+              photo="http://placehold.it/690x460"
+              tags={["#неведомое2", "#БРЕНД", "#НЛО", "#турнир"]}/>
+          </CategoryPhoto>
+
           <AddContent
             menuOpened={addContentMenuOpened}
             onMenuToggle={onAddContentMenuOpenedChange}

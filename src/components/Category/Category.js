@@ -1,5 +1,3 @@
-import ProductCardMini from '../ProductCardMini/ProductCardMini'
-
 import CategoryMainHeader from './CategoryMainHeader'
 
 export default class Category {
@@ -10,12 +8,7 @@ export default class Category {
 
         <div className="row row--inline-blocks">
           <div className="col-sm-6 col-md-4">
-            <ProductCardMini
-              description="Фото в шортах"
-              price="100 000"
-              photo="http://placehold.it/690x460"
-              tags={["#неведомое1", "#БРЕНД", "#НЛО", "#турнир"]}
-            />
+            {this.props.children}
           </div>
         </div>
       </section>

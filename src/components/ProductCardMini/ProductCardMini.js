@@ -17,14 +17,14 @@ export default class ProductCardMini {
           <div className="col-xs-4"><span className="product-card-mini__price" href="#">{this.props.price}<span className="rub"></span></span></div>
           <form className="col-xs-8 col--pl0 text-right">
             <div className="input-group">
-              <input type="number" className="form-control form-control--ultra-short" step="1" value="1" min="0" max="999" />
+              <input type="number" className="form-control form-control--ultra-short" step="1" value={this.props.amount} onChange={this.props.onAmountChange} min="0" max="999" />
             </div>
             <input className="btn btn-primary" type="submit" value="Купить" />
           </form>
         </div>
         <div className="small">
           <p className="product-card-mini__tags">
-            {this.props.tags.map((el) => <a href="#">{el}</a>)}
+            {this.props.tags.map((tag, index) => <a href="#" key={index}>{tag}</a>)}
           </p>
         </div>
       </div>

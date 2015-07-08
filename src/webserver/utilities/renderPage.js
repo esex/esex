@@ -8,7 +8,7 @@ import Application from '../../components/Application'
 
 export default async function renderPage(request) {
   const {tokenResource, userResource} = request
-  
+
   const dispatcher = createDispatcher()
 
   if (tokenResource && userResource) {
@@ -37,6 +37,10 @@ export default async function renderPage(request) {
       'Vary': 'Cookie'
     },
     status,
-    body: appTemplate(title, pageContent, state)
+    body: appTemplate(
+      title,
+      process.env.NODE_ENV === 'markup' ? "" : pageContent,
+      state
+    )
   }
 }

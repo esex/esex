@@ -1,5 +1,3 @@
-import PhotoCardMini from '../PhotoCardMini/PhotoCardMini'
-
 import CategoryMainHeader from './CategoryMainHeader'
 
 import './CategoryPhoto.less'
@@ -12,10 +10,7 @@ export default class CategoryPhoto {
 
         <div className="row row--inline-blocks">
           <div className="col-sm-6 col-md-4">
-            <PhotoCardMini
-              description="Фото в труселях"
-              photo="http://placehold.it/690x460"
-              tags={["#неведомое2", "#БРЕНД", "#НЛО", "#турнир"]}/>
+            {this.props.children}
           </div>
         </div>
       </section>

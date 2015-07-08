@@ -15,7 +15,7 @@ export default class PhotoCardMini {
         </a>
         <div className="small">
           <p className="photo-card-mini__tags">
-            {this.props.tags.map((el) => <a href="#">{el}</a>)}
+            {this.props.tags.map((tag, index) => <a href="#" key={index}>{tag}</a>)}
           </p>
         </div>
       </div>
