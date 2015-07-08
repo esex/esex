@@ -1,0 +1,32 @@
+@import '../variables.less';
+
+
+
+.message-top {
+  position: relative;
+  text-align: center;
+  font-size: @font-size-h3;
+  background-color: darken(@brand-success, 10%);
+  color: #fff;
+
+
+
+  &__inner {
+    padding: 10px 50px;
+    position: relative;
+  }
+
+
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff !important;
+    text-decoration: none;
+  }
+}

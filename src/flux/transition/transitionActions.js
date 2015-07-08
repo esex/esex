@@ -15,7 +15,7 @@ export const users = createFetchTransition({
   apiRequest: api.usersPageApiRequest
 })
 
-export const markup = createFetchTransition({
+export const markup = createStaticTransition({
   title: 'Markup'
 })
 

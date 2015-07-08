@@ -1,0 +1,131 @@
+@import '../variables.less'; // файл с переменными
+
+
+
+.add-content {
+  background-color: @header-bg;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: @header-height;
+  z-index: 202;
+  width: 100%;
+  min-width: @html-min-width;
+
+  .container {
+    position: relative;
+    padding-right: 40px;
+  }
+
+  &__icon-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff !important;
+    height: @header-height;
+    line-height: @header-height;
+    width: @header-height;
+    font-size: 24px;
+    text-align: center;
+  }
+
+
+
+  &__link-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: @header-height;
+    overflow: hidden;
+
+    > li {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    a {
+      display: block;
+      height: @header-height;
+      line-height: @header-height;
+      color: #fff !important;
+      text-decoration: none !important;
+      // font-size: 24px;
+      margin-right: 5px;
+      padding: 0 10px;
+
+      > i {
+        margin-right: .3em;
+      }
+    }
+  }
+
+
+
+  &__wrap {
+    // position: static;
+    padding-left: (@grid-gutter-width / 2);
+
+    // @media (max-width: @screen-sm-max) {
+      position: fixed;
+      top: @header-height;
+      bottom: @header-height;
+      right: 0;
+      width: 250px;
+      // height: 100%;
+      background-color: @header-bg;
+      color: #fff;
+      padding: 10px 0 10px (@grid-gutter-width / 2);
+      transition: transform 600ms ease 0s;
+      transform: translate3d(250px, 0, 0);
+      z-index: 201;
+
+      &--visible {
+        transform: translate3d(0, 0, 0);
+      }
+
+      .add-content__link-list {
+        height: auto;
+        border-top: 1px solid @gray;
+        margin: 0 -15px 15px 0;
+
+        > li {
+          display: block;
+        }
+
+        a {
+          height: auto;
+          line-height: 30px;
+          margin-right: -15px;
+          color: @gray-lighter;
+          text-decoration: none;
+          border-bottom: 1px solid @gray;
+          padding-left: 5px;
+        }
+      }
+    // }
+  }
+
+
+
+  &__inner {
+    overflow-y: auto;
+    height: 100%;
+    padding-right: 15px;
+  }
+
+
+
+  &__pseudo-table {
+    display: table;
+    width: 100%;
+    min-height: 100%;
+  }
+
+
+
+  &__pseudo-td {
+    display: table-cell;
+    vertical-align: bottom;
+  }
+}
